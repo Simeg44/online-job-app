@@ -1,0 +1,15 @@
+extends layout
+
+block content
+	.container
+		h1 Applicants
+		ul#applications.list-unstyled
+			for applicant in applicants
+				li.applicant
+					a(href="/applicants/#{applicant._id}")= applicant.name
+					p: em= applicant.bio
+					p= applicant.skills
+					p= applicant.years
+					p= applicant.reason
+					a(href="/delete/#{applicant._id}") Delete
+		a(href="/") Enter more applicants
